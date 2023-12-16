@@ -1,0 +1,8 @@
+This module implements both SNO, FNO and NSM. The `_base` module defines shared
+classes used by neural operators, namely the spectral convolution layers. It is
+a general implementation for arbitrary input dimensions, defined by the `Basis`
+class. Similarily, the SNO and FNO models are also compatible to any dimension.
+
+Each model is associated with a `loss` function, which defines how the loss is
+obtained for a given sample of the parameter function. For an instantiation of
+the PDE class, this function returns a dictionary of the loss terms separately.

@@ -1,0 +1,2 @@
+note=ns.T50/NSM."$seed" iter=200000 ckpt=1000        bash run/.sh --pde navierstokes.tf --model fno --hdim 32 --depth 5 --mode 18 31 31 --spectral
+note=ns.T50/x96."$seed" iter=200000 ckpt=1000 vmap=1 bash run/.sh --pde navierstokes.tf --model fno --hdim 32 --depth 5 --mode 18 31 31 --grid 96

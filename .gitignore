@@ -1,0 +1,17 @@
+# PYTHON #
+##########
+__pycache__
+
+#  FILE  #
+##########
+*.npy
+*.jpg
+*.gif
+
+test*
+log
+
+#  DEMO  #
+##########
+
+!demo.gif

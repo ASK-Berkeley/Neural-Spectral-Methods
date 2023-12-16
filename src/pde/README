@@ -1,0 +1,10 @@
+This module defines the interface of PDE classess. Abstract classes in `_domain`
+and `_params` modules defines domain and PDE parameter. Functions in `mollifier`
+define how each type of boundary condition can be satisfied by transforming the
+predicted solution. Built on these classes, the general `PDE` class defines how
+the residual terms are computed in both the physical and spectral domain, which
+will be used by the models for loss calculation.
+
+Each subdirectory contains a instantiation of these interface, together with a
+`generate` module for numerical solution generation. Follow these templates if
+you want to try a new problem.

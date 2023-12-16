@@ -1,0 +1,28 @@
+name: ns
+workdir: .
+resources:
+
+  cloud: gcp
+  disk_size: 256
+  accelerators: A100:1
+
+  image_id: "projects/deeplearning-platform-release/global\
+            /images/common-cu113-v20230615-ubuntu-2004-py310"
+
+setup: |
+
+  echo ====================
+  echo executing init......
+  echo ====================
+
+  JAXLIB=jaxlib-0.4.7+cuda11.cudnn82-cp310-cp310-manylinux2014_x86_64
+  pip install https://storage.googleapis.com/jax-releases/cuda11/$JAXLIB.whl
+
+  pip install -r run/requirements.txt
+
+  echo =====================
+  echo generating data......
+  echo =====================
+
+  python -m src.pde.navierstokes.generate ns
+  python -m src.pde.navierstokes.generate tf

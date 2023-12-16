@@ -1,0 +1,25 @@
+Please refer to the READMEs in each directories for details.
+
+FILE STRUCTURE
+
+|- main.py      : entry point.
+|- ckpt.py      : checkpoint subproc.
+|- plot/        : matplotlib utilities.
+|- run/         : command line scripts.
+|- src/
+   |- dists.py      : common distributions.
+   |- train.py      : training routines: step & eval.
+   |- utils.py      : grid generation, differentiate schemes, etc.
+   |- basis/
+   |  |- fourier.py     : 1-d Trigonometric series.
+   |  |- chebyshev.py   : 1-d T type Chebyshev polynomials.
+   |- pde/
+   |  |- _domain.py     : physical domain definition. N-d unit rect.
+   |  |- _params.py     : parameterize PDE with interpolating series.
+   |  |- mollifier.py   : how boundary condition applies to solution.
+   |- model/
+      |- _base.py       : shared modules.
+      |- sno/spectral.py: SNO.
+      |- fno/           : FNO.
+         |- __init__.py     : PINN.
+         |- spectral.py     : NSM (ours).

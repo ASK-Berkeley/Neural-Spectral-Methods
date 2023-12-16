@@ -1,0 +1,11 @@
+################################################################
+# PLEASE INSTALL JAXLIB BASE ON YOUR OWN MACHINE CONFIGURATION #
+################################################################
+
+jax==0.4.7
+flax==0.7.0
+optax==0.1.5
+
+tqdm==4.65.0
+matplotlib==3.7.0
+scienceplots==2.1.0

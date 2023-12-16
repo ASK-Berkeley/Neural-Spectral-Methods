@@ -1,0 +1,55 @@
+This is a self-contained module of different orthogonal basis functions. `Basis`
+is the abstract class defined for a general N-d basis, in terms of its spectral
+coefficients. Each class is associated with a static `ndim`, the dimensionality
+of the basis. The coefficient data, `coef`, is at least `ndim` in size:
+
+    - The first `ndim` dimensions corresponds to the basis dimension;
+
+    - The rest of the them are interpreted as arbitrary channels, i.e. they are
+      broadcasted by each operation, and have no special meaning to the basis.
+
+The `Basis` class requires the following implementations:
+
+    - `ix`: defines ordered indices of `coef`s w.r.t. given number of modes. It
+            is used to truncate or extend instances of basis to other modes.
+
+    - `fn`: defines array of basis functions w.r.t. given number of modes;
+
+    - `grid`: defines the collocation points w.r.t. given number of modes;
+
+    - `transform`/`inv`: transforms between coefficients and function values on
+                         the collocation points defined by the `grid` function;
+
+The `Basis` class provides the following functionalities:
+
+    - `__call__`: evaluates function values at any position. `grid`point values
+                  are identical to the results of `inv`erse transformation; but
+                  calling `inv` is usually faster due to the use of FFTs.
+
+    - `to`: aligns the instance of basis function to another mode; larger modes
+            are truncated, and smaller modes are padded with zeros.
+
+    - `add`/`mul`: sums / multiplies basis functions from the same class. Given
+                   operands are aligned to the same number of modes first.
+
+    - `grad`/`int`: obtains the derivatives and indefinite integrals along each
+                    dim. The resulting function has an extra trailing dimension
+                    to it, representing the operation on each of the `ndim`s.
+
+IMPLEMENTATIONS
+
+Inherited from `Basis`, the `Series` specializes to 1-d basis, which is further
+realized by `fourier` and `chebyshev` basis. Built on any sequence of `Series`,
+the class factory function `series` recursively instantiates a `Basis` class on
+top of the given classes of 1-d series.
+
+**SHARP BITS**
+
+1. It might not be lossless to take derivatives on Fourier basis, if the number
+   of modes is even. I'm using a compact way to storing Fourier coefficients by
+   squashing the Hermitian spectrum into reals of the same shape. Therefore the
+   last coefficient is on its own, which will be dropped by taking gradient.
+
+2. The (inverse) transform of Chebyshev basis does not work with singltons. I'm
+   using Hermitian FFT, which returns zero-sized array for one-sized input. Try
+   broadcasting the input to at least two-sized before transforming.
