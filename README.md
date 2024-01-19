@@ -1,7 +1,7 @@
 <img src="demo.gif" width="100%"/>
 <h1> Neural Spectral Methods </h1>
 
-This repo contains the JAX implementation of our paper,
+This repo contains the JAX implementation of our ICLR 2024 paper,
 
 *Neural Spectral Methods: Self-supervised learning in the spectral domain*.
 <br />
@@ -15,7 +15,7 @@ Neural Spectral Methods (NSM) is a class of machine learning method designed for
 
 ## Code structure
 
-The structure of this codebase is outlined in the [`src`](src) directory. This includes definitions for [PDE systems](src/pde), utilities for [orthogonal basis](src/basis), and general implementations of [baseline models](src/model). This codebase is self-contained and can serve as a standalong module for other purposes. To experiment with new problems, follow the templates for instantiating the abstract PDE class in the `src/pde` directory.
+The structure of this codebase is outlined in the [`src`](src) directory. This includes definitions for [PDE systems](src/pde), utilities for [orthogonal basis](src/basis), and general implementations of [baseline models](src/model). This codebase is self-contained and can serve as a standalong module for other purposes. To experiment with new problems, follow the templates for instantiating the abstract PDE class in the [`src/pde`](src/pde) directory.
 
 ### Arguments
 
@@ -140,3 +140,18 @@ python -m plot.<NAME>
 - 2023.12.9: initial commit
 - 2023.12.11: add arXiv link
 - 2023.12.22: release code
+- 2024.01.19: update citation
+
+## Citation
+
+If you find this repository useful, please cite our work:
+
+```
+@article{du2023neural,
+  title={Neural Spectral Methods: Self-supervised learning in the spectral domain},
+  author={Du, Yiheng and Chalapathi, Nithin and Krishnapriyan, Aditi},
+  journal={arXiv preprint arXiv:2312.05225},
+  year={2023}
+}
+```
+
