@@ -141,17 +141,18 @@ python -m plot.<NAME>
 - 2023.12.11: add arXiv link
 - 2023.12.22: release code
 - 2024.01.19: update citation
+- 2024.01.31: update ICLR citation
 
 ## Citation
 
 If you find this repository useful, please cite our work:
 
 ```
-@article{du2023neural,
+@article{du2024neural,
   title={Neural Spectral Methods: Self-supervised learning in the spectral domain},
+  journal={The Twelfth International Conference on Learning Representations},
   author={Du, Yiheng and Chalapathi, Nithin and Krishnapriyan, Aditi},
-  journal={arXiv preprint arXiv:2312.05225},
-  year={2023}
+  year={2024}
 }
 ```
 
